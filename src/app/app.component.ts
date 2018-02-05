@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Spinkit } from 'ng-http-loader/spinkits';
-import { UtilsService } from './shared/services/utils.service';
+import { UtilsService } from './modules/shared/services/utils.service';
 
 @Component({
     selector: 'app-root',

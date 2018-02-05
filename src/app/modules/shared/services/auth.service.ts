@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 import { User } from '../models/user.model';
 import { SessionInfo } from '../models/sessioninfo.model';
 import { LoginInfo } from '../models/logininfo.model';
-import { SharedConstants } from '../modules/shared.constants';
+import { SharedConstants } from '../shared.constants';
 
 const SESSION_TIMEOUT_IN_MILLIS: number = 1200000; // 20 Minutes
 const AUTHTOKEN_REFRESH_TIMEOUT_IN_MILLIS: number = 900000; // 15 Minutes
