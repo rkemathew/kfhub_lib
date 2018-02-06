@@ -17,6 +17,9 @@
 .settings/
 *.sublime-workspace
 
+# ng-packagr Temp Folder
+.ng_pkg_build/
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json

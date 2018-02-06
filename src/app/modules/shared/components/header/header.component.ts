@@ -1,8 +1,4 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { AuthService } from '../../services/auth.service';
-import { UtilsService } from '../../services/utils.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-header',
@@ -12,15 +8,13 @@ import { UtilsService } from '../../services/utils.service';
 export class HeaderComponent {
     public isShowMenu: boolean = false;
 
-    constructor(
-        private router: Router,
-        private authService: AuthService,
-        private utilsService: UtilsService
-    ) {};
+    @Input()
+    isShowNav: boolean = false;
 
-    isAppPages(): boolean {
-        return this.utilsService.isAppPages();
-    }
+    @Output()
+    onlogout: EventEmitter<null> = new EventEmitter<null>();
+
+    constructor() {};
 
     toggleMenu(): void {
         this.isShowMenu = !this.isShowMenu;
@@ -33,8 +27,7 @@ export class HeaderComponent {
     
     logout(): void {
         this.isShowMenu = false;
-        this.authService.removeSessionInfo();
-        this.router.navigate(['/login']);
+        this.onlogout.emit();
     }
 
     hasAdminRole(): boolean {

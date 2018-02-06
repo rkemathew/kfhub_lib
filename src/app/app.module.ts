@@ -15,16 +15,16 @@ import { AdvGrowlModule } from 'primeng-advanced-growl';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './modules/shared/shared.module';
+import { TalentArchitectModule } from './modules/talentarchitect/talentarchitect.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './modules/shared/components/auth/login.component';
-import { HeaderComponent } from './modules/shared/components/header/header.component';
-import { FooterComponent } from './modules/shared/components/footer/footer.component';
-import { MenuComponent } from './modules/shared/components/menu/menu.component';
 import { SPSearchComponent } from './modules/talentarchitect/successprofile/spsearch.component';
 
 import { MessageService } from 'primeng/components/common/messageservice';
 
+import { SharedConstantsService } from './modules/shared/services/shared-constants.service';
 import { AuthGuardService } from './modules/shared/services/auth-guard.service';
 import { AuthService } from './modules/shared/services/auth.service';
 import { UtilsService } from './modules/shared/services/utils.service';
@@ -52,23 +52,20 @@ export function HttpLoaderFactory(http: HttpClient) {
         ModalModule.forRoot(),
         BootstrapModalModule,
         AdvGrowlModule,
-        AppRoutingModule
+        AppRoutingModule,
+        SharedModule,
+        TalentArchitectModule
     ],
     declarations: [
         AppComponent,
-        LoginComponent,
-        HeaderComponent,
-        FooterComponent,
-        MenuComponent,
-        SPSearchComponent
+        LoginComponent
     ],
     providers: [
+        TranslateService,
         MessageService,
         AuthGuardService,
-        AuthService,
-        UtilsService,
-        TranslateService,
-        PopupService
+        PopupService,
+        UtilsService
     ],
     bootstrap: [AppComponent]
 })

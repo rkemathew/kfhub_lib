@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 import { User } from '../models/user.model';
 import { SessionInfo } from '../models/sessioninfo.model';
 import { LoginInfo } from '../models/logininfo.model';
-import { SharedConstants } from '../shared.constants';
+import { SharedConstantsService} from './shared-constants.service';
 
 const SESSION_TIMEOUT_IN_MILLIS: number = 1200000; // 20 Minutes
 const AUTHTOKEN_REFRESH_TIMEOUT_IN_MILLIS: number = 900000; // 15 Minutes
@@ -22,23 +22,24 @@ export class AuthService {
 
     constructor(
         private router: Router,
-        private http: HttpClient
+        private http: HttpClient,
+        private sharedConstants: SharedConstantsService
     ) {}
 
     public login(loginInfo: LoginInfo): Observable<any> {
-        const url: string = SharedConstants.getLoginUrl();
+        const url: string = this.sharedConstants.getLoginUrl();
         const body: Object = {
             "username": loginInfo.Username,
             "password": loginInfo.Password
         };
-        const headers: HttpHeaders = new HttpHeaders().set("applicationName", SharedConstants.APP_NAME_CORE);
+        const headers: HttpHeaders = new HttpHeaders().set("applicationName", this.sharedConstants.APP_NAME_CORE);
         return this.http.post(url, body, { headers })
             .catch((error: any) => Observable.throw(error));
     }
 
     public getUser(userId: number): Observable<any> {
         var method = 'GET';
-        var url = SharedConstants.getUsersUrl(userId);
+        var url = this.sharedConstants.getUsersUrl(userId);
         var headers = null;
         var data = null;
         var isReturnFullResponse = false;
@@ -167,7 +168,7 @@ export class AuthService {
         this.router.navigate([this.redirectUrl]);
     }
 
-    public authHttpCall(method: string, url: string, data: any, headers: any, isReturnFullResponse: boolean): Observable<any> {
+    public authHttpCall(method: string, url: string, data: any = null, headers: any = null, isReturnFullResponse: boolean = false): Observable<any> {
         let retVal: Observable<any> = null;
         headers = headers ? headers : {};
         if (!headers.authToken) {
