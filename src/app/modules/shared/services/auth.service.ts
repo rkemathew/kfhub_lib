@@ -179,7 +179,7 @@ export class AuthService {
         switch(method.toUpperCase()) {
             case 'GET':
                 retVal = this.http.get<t>(url, { headers })
-                    .map((response: any) => isReturnFullResponse ? response : response.data)
+                    .map((response: any) => isReturnFullResponse ? response : (response && response.data ? response.data : null))
                     .catch((error: any) => Observable.throw(error));
                 break;
             case 'PUT':
