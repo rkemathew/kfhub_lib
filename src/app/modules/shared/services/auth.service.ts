@@ -34,6 +34,7 @@ export class AuthService {
         };
         const headers: HttpHeaders = new HttpHeaders().set("applicationName", this.sharedConstants.APP_NAME_CORE);
         return this.http.post(url, body, { headers })
+            .map((response: any) => response.data)
             .catch((error: any) => Observable.throw(error));
     }
 
@@ -178,6 +179,7 @@ export class AuthService {
         switch(method.toUpperCase()) {
             case 'GET':
                 retVal = this.http.get(url, { headers })
+                    .map((response: any) => isReturnFullResponse ? response : response.data)
                     .catch((error: any) => Observable.throw(error));
                 break;
             case 'PUT':
