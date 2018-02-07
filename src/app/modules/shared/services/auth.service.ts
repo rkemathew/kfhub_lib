@@ -169,8 +169,8 @@ export class AuthService {
         this.router.navigate([this.redirectUrl]);
     }
 
-    public authHttpCall(method: string, url: string, data: any = null, headers: any = null, isReturnFullResponse: boolean = false): Observable<any> {
-        let retVal: Observable<any> = null;
+    public authHttpCall<t>(method: string, url: string, data: any = null, headers: any = null, isReturnFullResponse: boolean = false): Observable<any> {
+        let retVal: Observable<t> = null;
         headers = headers ? headers : {};
         if (!headers.authToken) {
             headers.authToken = this.AuthToken;
@@ -178,7 +178,7 @@ export class AuthService {
         
         switch(method.toUpperCase()) {
             case 'GET':
-                retVal = this.http.get(url, { headers })
+                retVal = this.http.get<t>(url, { headers })
                     .map((response: any) => isReturnFullResponse ? response : response.data)
                     .catch((error: any) => Observable.throw(error));
                 break;

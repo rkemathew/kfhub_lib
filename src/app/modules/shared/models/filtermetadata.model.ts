@@ -1,7 +1,7 @@
-export class FilterMetadata {
-    constructor(
-        public id: number,
-        public name: string,
-        public searchOn: boolean
-    ) {}
+export interface FilterMetadata {
+    id: number,
+    name: string,
+    value: string,
+    searchOn: FilterMetadata[],
+    options: FilterMetadata[]
 }
