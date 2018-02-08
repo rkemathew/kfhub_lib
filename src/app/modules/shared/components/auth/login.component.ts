@@ -35,20 +35,19 @@ export class LoginComponent implements OnInit {
 
     login() {
         var loginInfo: LoginInfo = new LoginInfo(this.email, this.password);
-        this.authService.login(loginInfo).subscribe((res) => {
-            let authInfo: any = res.data;
+        this.authService.login(loginInfo).subscribe((data) => {
+            let authInfo: any = data;
             this.authService.storeSessionInfo(authInfo);
-
             const userId = authInfo.userId;
-            this.authService.getUser(userId).subscribe((res) => {
-                authInfo.firstName = res.data.firstName;
-                authInfo.lastName = res.data.lastName;
+            this.authService.getUser(userId).subscribe((data) => {
+                authInfo.firstName = data.firstName;
+                authInfo.lastName = data.lastName;
                 authInfo.hasTalentProduct = false;
                 authInfo.hasPayProduct = false;
                 authInfo.hasTalentAcquisitionProduct = false;
                 authInfo.hasPayDataProduct = false;
 
-                res.data.subscriptions[0].productTypes.forEach((productType) => {
+                data.subscriptions[0].productTypes.forEach((productType) => {
                     switch (productType.id) {
                         case 22: authInfo.hasTalentProduct = true; break;
                         case 23: authInfo.hasPayProduct = true; break;

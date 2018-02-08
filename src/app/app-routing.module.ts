@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/shared/components/auth/login.component';
-import { SPSearchComponent } from './modules/talentarchitect/successprofile/spsearch.component';
 import { AuthGuardService as AuthGuard } from './modules/shared/services/auth-guard.service';
 
+import { AppComponent } from './app.component';
+import { LoginComponent } from './modules/shared/components/auth/login.component';
+import { SandboxMainComponent } from './modules/sanboxes/main/sanboxmain.component';
+
 const routes: Routes = [
-    { path: '', redirectTo: 'tarch/sp/search', pathMatch: 'full' },
+    { path: '', redirectTo: 'sandboxmain', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'tarch/sp/search', component: SPSearchComponent, canActivate: [AuthGuard] },
+    { path: 'sandboxmain', component: SandboxMainComponent, canActivate: [AuthGuard] },
     { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 

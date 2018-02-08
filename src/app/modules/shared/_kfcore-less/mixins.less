@@ -1,7 +1,3 @@
-@import "_variables";
-
-@import '_variables';
-
 //
 // Mixins
 // --------------------------------------------------
@@ -947,8 +943,6 @@
     display: -ms-inline-flexbox;
 }
 
-@import "_variables";
-
 .visuallyhidden {
   position: absolute;
   overflow: hidden;
@@ -1056,4 +1050,52 @@
 	  background: @disabled-button-bkg-color;
 	  color: @default-button-bkg-color;
   }
+}
+
+// From the old _breakpoints.less
+// WIDTHS
+@portrait-viewport-width: 768px;
+@portrait-container-margin: 9px;
+@portrait-container-width: @portrait-viewport-width - (@portrait-container-margin * 2);
+
+@tablet-viewport-width: 992px;
+@tablet-container-margin: 11px;
+@tablet-container-width: @tablet-viewport-width - (@tablet-container-margin * 2);
+
+@desktop-viewport-width: 1200px;
+@desktop-container-margin: 15px;
+@desktop-container-width: @desktop-viewport-width - (@desktop-container-margin * 2);
+
+
+// GENERIC MEDIA QUERY WRAPPERS
+.portrait(@rules) {
+    @media (min-width: @portrait-viewport-width) {
+        @rules();
+    }
+}
+
+.tablet(@rules) {
+    @media (min-width: @tablet-viewport-width) {
+        @rules();
+    }
+}
+
+.desktop(@rules) {
+    @media (min-width: @desktop-viewport-width) {
+        @rules();
+    }
+}
+
+.responsive-fullwidth() {
+  width: 100%;
+
+  .portrait({
+      width: @portrait-container-width;
+  });
+  .tablet({
+      width: @tablet-container-width;
+  });
+  .desktop({
+      width: @desktop-container-width;
+  });
 }

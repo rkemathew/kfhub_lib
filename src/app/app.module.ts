@@ -16,11 +16,10 @@ import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared/shared.module';
-import { TalentArchitectModule } from './modules/talentarchitect/talentarchitect.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './modules/shared/components/auth/login.component';
-import { SPSearchComponent } from './modules/talentarchitect/successprofile/spsearch.component';
+import { SandboxMainComponent } from './modules/sanboxes/main/sanboxmain.component';
 
 import { MessageService } from 'primeng/components/common/messageservice';
 
@@ -53,12 +52,12 @@ export function HttpLoaderFactory(http: HttpClient) {
         BootstrapModalModule,
         AdvGrowlModule,
         AppRoutingModule,
-        SharedModule,
-        TalentArchitectModule
+        SharedModule
     ],
     declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        SandboxMainComponent
     ],
     providers: [
         TranslateService,
