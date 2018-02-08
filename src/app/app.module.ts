@@ -16,10 +16,10 @@ import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { SandboxModule } from './modules/sanboxes/sandboxes.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './modules/shared/components/auth/login.component';
-import { SandboxMainComponent } from './modules/sanboxes/main/sanboxmain.component';
 
 import { MessageService } from 'primeng/components/common/messageservice';
 
@@ -52,12 +52,12 @@ export function HttpLoaderFactory(http: HttpClient) {
         BootstrapModalModule,
         AdvGrowlModule,
         AppRoutingModule,
-        SharedModule
+        SharedModule,
+        SandboxModule
     ],
     declarations: [
         AppComponent,
-        LoginComponent,
-        SandboxMainComponent
+        LoginComponent
     ],
     providers: [
         TranslateService,
