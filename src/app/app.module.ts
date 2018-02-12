@@ -28,6 +28,7 @@ import { AuthGuardService } from './modules/shared/services/auth-guard.service';
 import { AuthService } from './modules/shared/services/auth.service';
 import { UtilsService } from './modules/shared/services/utils.service';
 import { PopupService } from './modules/shared/services/popup.service';
+import { KFComponentsModule } from './modules/components/kfcomponents.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, "./languages/", ".json");
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         BootstrapModalModule,
         AdvGrowlModule,
         AppRoutingModule,
+        KFComponentsModule,
         SharedModule,
         SandboxModule
     ],

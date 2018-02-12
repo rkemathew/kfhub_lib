@@ -1,4 +1,6 @@
 export * from './src/app/modules/shared/shared.module';
+export * from './src/app/modules/components/kfcomponents.module';
+// export { KFGradeLevelPieComponent } from './src/app/modules/components/kfgradelevelpie/kfgradelevelpie.component';
 
 export { FilterMetadata } from './src/app/modules/shared/models/filtermetadata.model';
 export { LoginInfo } from './src/app/modules/shared/models/logininfo.model';

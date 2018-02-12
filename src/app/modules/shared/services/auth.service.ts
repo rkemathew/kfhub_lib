@@ -14,6 +14,7 @@ import { SharedConstantsService} from './shared-constants.service';
 const SESSION_TIMEOUT_IN_MILLIS: number = 1200000; // 20 Minutes
 const AUTHTOKEN_REFRESH_TIMEOUT_IN_MILLIS: number = 900000; // 15 Minutes
 const SESSION_STORAGE_INFO: string = 'sessionInfo';
+const TRANSITION_STORAGE_INFO: string = 'transitionSessionInfo';
 
 @Injectable()
 export class AuthService {
@@ -146,6 +147,24 @@ export class AuthService {
 
         return this.sessionInfoCache;
     }
+
+    public transferSessionInfoToLocalStorage(): void {
+        const sessionInfo: SessionInfo = this.getSessionInfo();
+        localStorage.setItem(TRANSITION_STORAGE_INFO, JSON.stringify(sessionInfo));
+        setTimeout(() => {
+            console.log('Timed destroy of the SessionInfo copied to local storage during Session Handoff');
+            localStorage.removeItem(TRANSITION_STORAGE_INFO);
+        }, 10000);
+
+        console.log('Transferred SessionInfo to LocalStorage');
+    }
+
+    public transferSessionInfoFromLocalStorage(): void {
+        const sessionInfoString = localStorage.getItem(TRANSITION_STORAGE_INFO);
+        const sessionInfo = sessionInfoString ? this.parseSessionInfo(sessionInfoString): null;
+        console.log('Transferred SessionInfo FROM LocalStorage', sessionInfo);
+        this.sessionInfoCache = sessionInfo;
+    }    
 
     public get AuthToken(): string {
         const sessionInfo: SessionInfo = this.getSessionInfo();
