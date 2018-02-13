@@ -10,3 +10,4 @@ export { AuthService } from './src/app/modules/shared/services/auth.service';
 export { AuthGuardService } from './src/app/modules/shared/services/auth-guard.service';
 export { PopupService } from './src/app/modules/shared/services/popup.service';
 export { SharedConstantsService } from './src/app/modules/shared/services/shared-constants.service';
+export { UtilsService } from './src/app/modules/shared/services/utils.service';

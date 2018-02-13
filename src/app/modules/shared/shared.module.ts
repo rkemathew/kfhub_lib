@@ -13,6 +13,7 @@ import { KFLoginComponent } from './components/auth/kflogin.component';
 
 import { AuthService } from './services/auth.service';
 import { SharedConstantsService } from './services/shared-constants.service';
+import { UtilsService } from './services/utils.service';
 
 @NgModule({
     imports: [
@@ -37,7 +38,8 @@ import { SharedConstantsService } from './services/shared-constants.service';
     ],
     providers: [
         AuthService,
-        SharedConstantsService
+        SharedConstantsService,
+        UtilsService
     ]
 })
 export class SharedModule { }

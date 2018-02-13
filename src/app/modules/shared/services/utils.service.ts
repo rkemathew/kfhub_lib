@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location } from '@angular/common';
 
 const nonAppPages: Array<string> = [
     "/login"
