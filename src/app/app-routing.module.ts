@@ -4,13 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './modules/shared/services/auth-guard.service';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/shared/components/auth/login.component';
+import { KFLoginComponent } from './modules/shared/components/auth/kflogin.component';
 import { SandboxMainComponent } from './modules/sanboxes/main/sanboxmain.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'sandboxmain', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
-    { path: 'sandboxmain', component: SandboxMainComponent, canActivate: [AuthGuard] },
+    { path: 'login', component: KFLoginComponent },
+    { path: 'sandboxmain', component: SandboxMainComponent },
     { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 

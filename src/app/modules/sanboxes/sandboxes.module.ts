@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from "@ngx-translate/core";
 import { SandboxMainComponent } from './main/sanboxmain.component';
-import { KFGradeLevelPieComponent } from '../components/kfgradelevelpie/kfgradelevelpie.component';
+import { KFComponentsModule } from '../components/kfcomponents.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        TranslateModule
+        TranslateModule,
+        KFComponentsModule
     ],
     declarations: [
-        SandboxMainComponent,
-        KFGradeLevelPieComponent
+        SandboxMainComponent
     ],
     providers: []
 })

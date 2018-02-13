@@ -19,7 +19,6 @@ import { SharedModule } from './modules/shared/shared.module';
 import { SandboxModule } from './modules/sanboxes/sandboxes.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/shared/components/auth/login.component';
 
 import { MessageService } from 'primeng/components/common/messageservice';
 
@@ -59,7 +58,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     declarations: [
         AppComponent,
-        LoginComponent
     ],
     providers: [
         TranslateService,
