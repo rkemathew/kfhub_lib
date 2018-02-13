@@ -20,6 +20,9 @@
 # ng-packagr Temp Folder
 .ng_pkg_build/
 
+# Generated Library Files
+kfhub*.tgz
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
