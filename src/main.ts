@@ -1,7 +1,7 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './app/app.module';
+import { KFAppModule } from './app/kf.app.module';
 import { environmentReader } from './environments/environment';
 
 environmentReader.then(environment => {
@@ -9,6 +9,6 @@ environmentReader.then(environment => {
         enableProdMode();
     }
 
-    platformBrowserDynamic().bootstrapModule(AppModule)
+    platformBrowserDynamic().bootstrapModule(KFAppModule)
         .catch(err => console.log(err));
 });

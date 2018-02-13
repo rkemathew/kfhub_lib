@@ -1,13 +1,13 @@
-export * from './src/app/modules/shared/shared.module';
+export * from './src/app/modules/shared/kf.shared.module';
 export * from './src/app/modules/components/kfcomponents.module';
 
-export { FilterMetadata } from './src/app/modules/shared/models/filtermetadata.model';
-export { LoginInfo } from './src/app/modules/shared/models/logininfo.model';
-export { SessionInfo } from './src/app/modules/shared/models/sessioninfo.model';
-export { User } from './src/app/modules/shared/models/user.model';
+export { KFFilterMetadata } from './src/app/modules/shared/models/kf.filtermetadata.model';
+export { KFLoginInfo } from './src/app/modules/shared/models/kf.logininfo.model';
+export { KFSessionInfo } from './src/app/modules/shared/models/kf.sessioninfo.model';
+export { KFUser } from './src/app/modules/shared/models/kf.user.model';
 
-export { AuthService } from './src/app/modules/shared/services/auth.service';
-export { AuthGuardService } from './src/app/modules/shared/services/auth-guard.service';
-export { PopupService } from './src/app/modules/shared/services/popup.service';
-export { SharedConstantsService } from './src/app/modules/shared/services/shared-constants.service';
-export { UtilsService } from './src/app/modules/shared/services/utils.service';
+export { KFAuthService } from './src/app/modules/shared/services/kf.auth.service';
+export { KFAuthGuardService } from './src/app/modules/shared/services/kf.auth-guard.service';
+export { KFPopupService } from './src/app/modules/shared/services/kf.popup.service';
+export { KFSharedConstantsService } from './src/app/modules/shared/services/kf.shared-constants.service';
+export { KFUtilsService } from './src/app/modules/shared/services/kf.utils.service';

@@ -18,7 +18,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "kf",
       "styles": [
         "styles.less",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
