@@ -5,6 +5,7 @@ export { KFFilterMetadata } from './src/app/modules/shared/models/kf.filtermetad
 export { KFLoginInfo } from './src/app/modules/shared/models/kf.logininfo.model';
 export { KFSessionInfo } from './src/app/modules/shared/models/kf.sessioninfo.model';
 export { KFUser } from './src/app/modules/shared/models/kf.user.model';
+export { KFMenuItem } from './src/app/modules/shared/models/kf.menu-item.model';
 
 export { KFAuthService } from './src/app/modules/shared/services/kf.auth.service';
 export { KFAuthGuardService } from './src/app/modules/shared/services/kf.auth-guard.service';
