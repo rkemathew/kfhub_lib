@@ -14,6 +14,7 @@ import { KFLoginComponent } from './components/auth/kf.login.component';
 import { KFAuthService } from './services/kf.auth.service';
 import { KFSharedConstantsService } from './services/kf.shared-constants.service';
 import { KFUtilsService } from './services/kf.utils.service';
+import { KFRoutesService } from './services/kf.routes.service';
 
 @NgModule({
     imports: [
@@ -36,7 +37,11 @@ import { KFUtilsService } from './services/kf.utils.service';
         KFMenuComponent,
         KFLoginComponent
     ],
+    entryComponents: [
+        KFLoginComponent
+    ],
     providers: [
+        KFRoutesService,
         KFAuthService,
         KFSharedConstantsService,
         KFUtilsService

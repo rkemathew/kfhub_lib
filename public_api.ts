@@ -7,6 +7,7 @@ export { KFSessionInfo } from './src/app/modules/shared/models/kf.sessioninfo.mo
 export { KFUser } from './src/app/modules/shared/models/kf.user.model';
 export { KFMenuItem } from './src/app/modules/shared/models/kf.menu-item.model';
 
+export { KFRoutesService } from './src/app/modules/shared/services/kf.routes.service';
 export { KFAuthService } from './src/app/modules/shared/services/kf.auth.service';
 export { KFAuthGuardService } from './src/app/modules/shared/services/kf.auth-guard.service';
 export { KFPopupService } from './src/app/modules/shared/services/kf.popup.service';
