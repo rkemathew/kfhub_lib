@@ -1,1 +1,1 @@
-cp -uv ../kfhub_app/src/languages/* ./src/languages
+cp -ruv ../kfhub_app/src/languages/* ./src/languages

@@ -1,7 +1,7 @@
 case $1 in
 
 "fonts" | "images" | "config")
-    cp -uv ../kfhub_app/src/assets/$1/* ./src/assets/$1
+    cp -ruv ../kfhub_app/src/assets/$1/* ./src/assets/$1
     ;;
 
 *)
