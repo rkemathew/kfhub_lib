@@ -4,7 +4,7 @@ import { TranslateService } from "@ngx-translate/core";
 
 import { KFAuthService } from '../../services/kf.auth.service';
 import { KFPopupService } from '../../services/kf.popup.service';
-import { KFLoginInfo } from '../../models/kf.logininfo.model';
+import { KFLoginInfo } from '../../models/kf.login-info.model';
 import { AdvGrowlService } from 'primeng-advanced-growl';
 
 @Component({

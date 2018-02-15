@@ -41,6 +41,7 @@ export class KFMenuComponent implements OnInit {
 
     onSubMenuActivate(menuItem: KFMenuItem) {
         this.setActiveSubMenuItem(menuItem);
+        console.log('onSubMenuActivate menuItem.route', menuItem.route);
         this.router.navigate([ menuItem.route ]);
     }
 }

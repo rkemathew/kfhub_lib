@@ -13,6 +13,7 @@ import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 
 import { AdvGrowlModule } from 'primeng-advanced-growl';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
+import { NgIdleModule } from '@ng-idle/core/src/module';
 
 import { KFAppRoutingModule } from './kf.app-routing.module';
 import { KFSharedModule } from './modules/shared/kf.shared.module';
@@ -27,7 +28,7 @@ import { KFAuthGuardService } from './modules/shared/services/kf.auth-guard.serv
 import { KFAuthService } from './modules/shared/services/kf.auth.service';
 import { KFUtilsService } from './modules/shared/services/kf.utils.service';
 import { KFPopupService } from './modules/shared/services/kf.popup.service';
-import { KFComponentsModule } from './modules/components/kfcomponents.module';
+import { KFComponentsModule } from './modules/components/kf.components.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, "./languages/", ".json");
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ModalModule.forRoot(),
         BootstrapModalModule,
         AdvGrowlModule,
+        NgIdleModule.forRoot(),
         KFAppRoutingModule,
         KFComponentsModule,
         KFSharedModule,

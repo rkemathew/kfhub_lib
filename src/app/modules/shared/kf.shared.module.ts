@@ -5,6 +5,7 @@ import { TranslateModule } from "@ngx-translate/core";
 import { AdvGrowlModule } from 'primeng-advanced-growl';
 import { ModalModule } from 'ngx-modialog';
 import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
+import { NgIdleModule } from '@ng-idle/core/src/module';
 
 import { KFHeaderComponent } from './components/header/kf.header.component';
 import { KFFooterComponent } from './components/footer/kf.footer.component';
@@ -23,7 +24,8 @@ import { KFRoutesService } from './services/kf.routes.service';
         TranslateModule,
         AdvGrowlModule,
         ModalModule,
-        BootstrapModalModule
+        BootstrapModalModule,
+        NgIdleModule
     ],
     declarations: [
         KFHeaderComponent,

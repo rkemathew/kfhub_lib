@@ -10,10 +10,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
-    "rebuild:assets":    "bash scripts/rebuild_kfhub_assets.sh",
+    "rebuild:assets": "bash scripts/rebuild_kfhub_assets.sh",
     "rebuild:languages": "bash scripts/rebuild_kfhub_languages.sh",
-    "rebuild:less":      "bash scripts/rebuild_kfhub_less.sh",
-    "rebuild:lib":       "bash scripts/rebuild_kfhub_lib.sh"
+    "rebuild:less": "bash scripts/rebuild_kfhub_less.sh",
+    "rebuild:lib": "bash scripts/rebuild_kfhub_lib.sh"
   },
   "private": false,
   "dependencies": {
@@ -27,6 +27,7 @@
     "@angular/platform-browser-dynamic": "^5.2.3",
     "@angular/router": "^5.2.3",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0",
+    "@ng-idle/core": "^2.0.0-beta.13",
     "@ngx-translate/core": "^8.0.0",
     "@ngx-translate/http-loader": "^2.0.0",
     "bootstrap": "^3.3.7",

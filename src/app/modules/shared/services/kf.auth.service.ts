@@ -7,8 +7,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { KFUser } from '../models/kf.user.model';
-import { KFSessionInfo } from '../models/kf.sessioninfo.model';
-import { KFLoginInfo } from '../models/kf.logininfo.model';
+import { KFSessionInfo } from '../models/kf.session-info.model';
+import { KFLoginInfo } from '../models/kf.login-info.model';
 import { KFSharedConstantsService} from './kf.shared-constants.service';
 
 const SESSION_TIMEOUT_IN_MILLIS: number = 1200000; // 20 Minutes

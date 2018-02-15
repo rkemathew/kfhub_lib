@@ -14,7 +14,7 @@ export class KFHeaderComponent {
     @Output()
     onlogout: EventEmitter<null> = new EventEmitter<null>();
 
-    constructor() {};
+    constructor() {}
 
     toggleMenu(): void {
         this.isShowMenu = !this.isShowMenu;

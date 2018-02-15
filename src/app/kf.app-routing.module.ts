@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { KFAuthGuardService as AuthGuard } from './modules/shared/services/kf.auth-guard.service';
 
 import { KFLoginComponent } from './modules/shared/components/auth/kf.login.component';
-import { KFSandboxMainComponent } from './modules/sanboxes/main/kf.sanboxmain.component';
+import { KFSandboxMainComponent } from './modules/sanboxes/main/kf.sandbox-main.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'sandboxmain', pathMatch: 'full' },
