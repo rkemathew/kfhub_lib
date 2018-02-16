@@ -6,6 +6,9 @@ export { KFLoginInfo } from './src/app/modules/shared/models/kf.login-info.model
 export { KFSessionInfo } from './src/app/modules/shared/models/kf.session-info.model';
 export { KFUser } from './src/app/modules/shared/models/kf.user.model';
 export { KFMenuItem } from './src/app/modules/shared/models/kf.menu-item.model';
+export { KFIKeyedCollection } from './src/app/modules/shared/models/kf.i-keyed-colection.model';
+
+export { KFKeyedCollection } from './src/app/modules/shared/utils/kf.keyed-collection.util';
 
 export { KFRoutesService } from './src/app/modules/shared/services/kf.routes.service';
 export { KFAuthService } from './src/app/modules/shared/services/kf.auth.service';
