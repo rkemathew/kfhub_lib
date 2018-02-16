@@ -5,15 +5,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "concurrently --kill-others \"ng serve\" \"npm run sync:assets\" \"npm run sync:languages\" \"npm run sync:less\"",
     "build": "ng build --prod --build-optimizer",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
-    "rebuild:assets": "bash scripts/rebuild_kfhub_assets.sh",
-    "rebuild:languages": "bash scripts/rebuild_kfhub_languages.sh",
-    "rebuild:less": "bash scripts/rebuild_kfhub_less.sh",
-    "rebuild:lib": "bash scripts/rebuild_kfhub_lib.sh"
+    "sync": "sync-files ../kfhub_app/src/assets ./src/assets && sync-files ../kfhub_app/src/languages ./src/languages && sync-files ../kfhub_app/src/app/modules/shared/_kfcore-less ./src/app/modules/shared/_kfcore-less",
+    "sync:assets": "sync-files --watch ../kfhub_app/src/assets ./src/assets",
+    "sync:languages": "sync-files --watch ../kfhub_app/src/languages ./src/languages",
+    "sync:less": "sync-files --watch ../kfhub_app/src/app/modules/shared/_kfcore-less ./src/app/modules/shared/_kfcore-less"
   },
   "private": false,
   "dependencies": {
@@ -57,6 +58,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^2.0.0",
     "protractor": "~5.1.2",
+    "sync-files": "^1.0.3",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
     "typescript": "~2.6.0"
