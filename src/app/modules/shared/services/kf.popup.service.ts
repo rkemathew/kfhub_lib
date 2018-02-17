@@ -6,7 +6,9 @@ import { Modal } from 'ngx-modialog/plugins/bootstrap';
 
 @Injectable()
 export class KFPopupService {
-    constructor(private modal: Modal) {}
+    constructor(
+        private modal: Modal
+    ) {}
 
     alert(labelText: string, titleText: string, okText: string, labelTextParams: Object) {
         return new Observable((observer) => {
