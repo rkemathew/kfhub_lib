@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
     styleUrls: [ './kf.grade-level-pie.component.less' ]
 })
 export class KFGradeLevelPieComponent {
-    @Input() private grade: number = 0;
-    @Input() private label: string = "Grade";
+    @Input() public grade: number = 0;
+    @Input() public label: string = "Grade";
 }

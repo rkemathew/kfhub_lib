@@ -8,6 +8,7 @@ import { KFAuthService } from './modules/shared/services/kf.auth.service';
 import { KFUtilsService } from './modules/shared/services/kf.utils.service';
 import { KFRoutesService } from './modules/shared/services/kf.routes.service';
 import { KFSandboxMainComponent } from './modules/sanboxes/main/kf.sandbox-main.component';
+import { KFExternalAppRouterComponent } from './modules/shared/components/external-router/kf.external-app-router.component';
 
 const INITIAL_ROUTE_PATH: string = 'tarc/jd/search';
 const DEFAULT_ROUTE_PATH: string = 'login';
@@ -89,7 +90,8 @@ export class KFAppComponent implements OnInit {
 
     getKFRoutes(): Route[] {
         let routes: Route[] = [
-            { path: 'tarc/jd/search', component: KFSandboxMainComponent }
+            { path: 'tarc/jd/search', component: KFSandboxMainComponent },
+            { path: 'tacq/ap/projsearch', component: KFExternalAppRouterComponent }
         ];
 
         routes.push.apply(routes, this.kfRoutesService.getRoutes());

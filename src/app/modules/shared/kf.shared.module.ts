@@ -16,6 +16,7 @@ import { KFAuthService } from './services/kf.auth.service';
 import { KFSharedConstantsService } from './services/kf.shared-constants.service';
 import { KFUtilsService } from './services/kf.utils.service';
 import { KFRoutesService } from './services/kf.routes.service';
+import { KFExternalAppRouterComponent } from './components/external-router/kf.external-app-router.component';
 
 @NgModule({
     imports: [
@@ -31,16 +32,19 @@ import { KFRoutesService } from './services/kf.routes.service';
         KFHeaderComponent,
         KFFooterComponent,
         KFMenuComponent,
-        KFLoginComponent
+        KFLoginComponent,
+        KFExternalAppRouterComponent
     ],
     exports: [
         KFHeaderComponent,
         KFFooterComponent,
         KFMenuComponent,
-        KFLoginComponent
+        KFLoginComponent,
+        KFExternalAppRouterComponent
     ],
     entryComponents: [
-        KFLoginComponent
+        KFLoginComponent,
+        KFExternalAppRouterComponent
     ],
     providers: [
         KFRoutesService,

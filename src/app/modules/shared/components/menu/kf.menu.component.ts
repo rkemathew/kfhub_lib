@@ -55,12 +55,15 @@ export class KFMenuComponent implements OnInit {
         const pos = this.getPosition(locationPath, '/', 2);
         const secondLevelRoutePath = locationPath.slice(0, pos);
 
-        const index = this.activeMenuItem.subMenuItems.findIndex((menuItem: KFMenuItem) => {
-            const miPos = this.getPosition(menuItem.route, '/', 2);
-            const miSecondLevelRoutePath = menuItem.route.slice(0, miPos);
-            return  miSecondLevelRoutePath === secondLevelRoutePath;
-        });
-
+        let index = 0;
+        if (this.activeMenuItem && this.activeMenuItem.subMenuItems) {
+            index = this.activeMenuItem.subMenuItems.findIndex((menuItem: KFMenuItem) => {
+                const miPos = this.getPosition(menuItem.route, '/', 2);
+                const miSecondLevelRoutePath = menuItem.route.slice(0, miPos);
+                return  miSecondLevelRoutePath === secondLevelRoutePath;
+            });
+        }
+        
         return (this.activeMenuItem && this.activeMenuItem.subMenuItems && this.activeMenuItem.subMenuItems[index]) ?
             this.activeMenuItem.subMenuItems[index]: null;
     }
