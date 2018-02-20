@@ -15,13 +15,6 @@ const SESSION_TIMEOUT_IN_MILLIS: number = 1200000; // 20 Minutes
 const AUTHTOKEN_REFRESH_TIMEOUT_IN_MILLIS: number = 900000; // 15 Minutes
 const SESSION_STORAGE_INFO: string = 'sessionInfo';
 const SESSION_HANDOFF_STORAGE_INFO: string = 'sessionInfo_handoff';
-const ANGULAR1_KFHUB_LOCAL_STORAGE_CLIENT_ID: string = 'HayGroup.Client.id';
-const ANGULAR1_KFHUB_LOCAL_STORAGE_USER_ID: string = 'HayGroup.User.id';
-const ANGULAR1_KFHUB_LOCAL_STORAGE_USER_NAME: string = 'HayGroup.User.name';
-const ANGULAR1_KFHUB_LOCAL_STORAGE_AUTH_TOKEN: string = 'HayGroup.User.authToken';
-const ANGULAR1_KFHUB_LOCAL_STORAGE_CURR_LANG: string = 'currentLng';
-const ANGULAR1_KFHUB_LOCAL_STORAGE_LENGTH: string = 'length';
-const ANGULAR1_KFHUB_LOCAL_STORAGE_PRODUCTS: string = 'products';
 
 @Injectable()
 export class KFAuthService {
@@ -159,26 +152,7 @@ export class KFAuthService {
 
     public transferSessionInfoToLocalStorage(): void {
         const sessionInfo: KFSessionInfo = this.getSessionInfo();
-
-/*
-        const clientId: string = '' + sessionInfo.User.ClientId;
-        const userId: string = '' + sessionInfo.User.UserId;
-        const userName: string = sessionInfo.User.Username;
-        const authToken: string = sessionInfo.User.AuthToken;
-        const currentLng: string = sessionInfo.User.Locale;
-        const length: string = '6'; // Ronnie TODO: Not sure how this is obtained and what it is used for, need to find out
-        const products: string = JSON.stringify(sessionInfo.User.ProductTypesRaw);
-
-        localStorage.setItem(ANGULAR1_KFHUB_LOCAL_STORAGE_CLIENT_ID, clientId);
-        localStorage.setItem(ANGULAR1_KFHUB_LOCAL_STORAGE_USER_ID, userId);
-        localStorage.setItem(ANGULAR1_KFHUB_LOCAL_STORAGE_USER_NAME, userName);
-        localStorage.setItem(ANGULAR1_KFHUB_LOCAL_STORAGE_AUTH_TOKEN, authToken);
-        localStorage.setItem(ANGULAR1_KFHUB_LOCAL_STORAGE_CURR_LANG, currentLng);
-        localStorage.setItem(ANGULAR1_KFHUB_LOCAL_STORAGE_LENGTH, length);
-        localStorage.setItem(ANGULAR1_KFHUB_LOCAL_STORAGE_PRODUCTS, products);
-*/
         localStorage.setItem(SESSION_HANDOFF_STORAGE_INFO, JSON.stringify(sessionInfo));
-
     }
 
     public get AuthToken(): string {
