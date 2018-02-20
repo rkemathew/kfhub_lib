@@ -91,7 +91,7 @@ export class KFAppComponent implements OnInit {
     getKFRoutes(): Route[] {
         let routes: Route[] = [
             { path: 'tarc/jd/search', component: KFSandboxMainComponent },
-            { path: 'tacq/ap/projsearch', component: KFExternalAppRouterComponent }
+            { path: 'tacq/ap/projsearch', component: KFExternalAppRouterComponent, data: { externalRoutePath: 'talentacquisition/tacqprojectsearch'} }
         ];
 
         routes.push.apply(routes, this.kfRoutesService.getRoutes());

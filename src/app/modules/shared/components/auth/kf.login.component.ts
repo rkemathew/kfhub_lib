@@ -43,6 +43,7 @@ export class KFLoginComponent implements OnInit {
             this.authService.getUser(userId).subscribe((userData) => {
                 authInfo.firstName = userData.firstName;
                 authInfo.lastName = userData.lastName;
+                authInfo.productTypesRaw = userData.subscriptions[0].productTypes; // This is being stored so that it can be passed during the angular5 - angular 1 handshake
                 authInfo.hasTalentProduct = false;
                 authInfo.hasPayProduct = false;
                 authInfo.hasTalentAcquisitionProduct = false;
@@ -53,7 +54,7 @@ export class KFLoginComponent implements OnInit {
                         case 22: authInfo.hasTalentProduct = true; break;
                         case 23: authInfo.hasPayProduct = true; break;
                         case 24: authInfo.hasTalentAcquisitionProduct = true; break;
-                        case 25: authInfo.hasPayProduct = true; break;
+                        case 25: authInfo.hasPayDataProduct = true; break;
                     }
                 });
 
