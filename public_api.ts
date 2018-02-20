@@ -1,5 +1,6 @@
 export * from './src/app/modules/shared/kf.shared.module';
 export * from './src/app/modules/components/kf.components.module';
+export { environment, environmentReader } from './src/environments/environment';
 
 export { KFFilterMetadata } from './src/app/modules/shared/models/kf.filter-metadata.model';
 export { KFLoginInfo } from './src/app/modules/shared/models/kf.login-info.model';

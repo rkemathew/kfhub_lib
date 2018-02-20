@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
     selector: 'kf-header',
@@ -6,6 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./kf.header.component.less']
 })
 export class KFHeaderComponent {
+    public  appUrlPrefix: string = environment().appUrlPrefix;
     public isShowMenu: boolean = false;
 
     @Input()
