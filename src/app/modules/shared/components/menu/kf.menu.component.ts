@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { KFMenuItem } from '../../models/kf.menu-item.model';
 import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
 
-const REDIRECT_ROUTE_PREFIX: string = '?redirectPath=';
+const REDIRECT_ROUTE_PREFIX: string = 'redirectPath=';
 
 @Component({
     selector: 'kf-menu',
@@ -43,6 +43,7 @@ export class KFMenuComponent implements OnInit {
         console.log('kf.menu.component / findActiveMenuItem(), locationPath (before)', locationPath);
 
         if (locationPath.startsWith(REDIRECT_ROUTE_PREFIX)) {
+            console.log('locationPath starts with ' + REDIRECT_ROUTE_PREFIX);
             locationPath = locationPath.slice(REDIRECT_ROUTE_PREFIX.length);
         }
 
