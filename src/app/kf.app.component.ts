@@ -75,14 +75,14 @@ export class KFAppComponent implements OnInit {
 
     getRoutes(): Route[] {
         let routes: Route[] = [];
-//        routes.push(this.getInitialRoute());
+        routes.push(this.getInitialRoute());
         this.getKFRoutes().forEach((route: Route) => routes.push(route));
         routes.push(this.getDefaultRoute());
         return routes;
     }
 
     getInitialRoute(): Route {
-        return { path: '', redirectTo: INITIAL_ROUTE_PATH, pathMatch: 'full' };
+        return { path: 'init', redirectTo: INITIAL_ROUTE_PATH, pathMatch: 'full' };
     }
 
     getDefaultRoute(): Route {

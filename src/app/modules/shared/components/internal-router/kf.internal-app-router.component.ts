@@ -13,7 +13,10 @@ export class KFInternalAppRouterComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        const redirectPath = this.activatedRoute.snapshot.queryParams["redirectPath"];
+        let redirectPath = this.activatedRoute.snapshot.queryParams["redirectPath"];
+        if (!redirectPath) {
+            redirectPath="init";
+        }
         console.log('************', redirectPath);
         this.router.navigate([ redirectPath ]);
     }
