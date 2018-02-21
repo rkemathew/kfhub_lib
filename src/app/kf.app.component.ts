@@ -90,8 +90,12 @@ export class KFAppComponent implements OnInit {
 
     getKFRoutes(): Route[] {
         let routes: Route[] = [
+            { path: 'tarc/sp/search', component: KFSandboxMainComponent },
             { path: 'tarc/jd/search', component: KFSandboxMainComponent },
-            { path: 'tacq/ap/projsearch', component: KFExternalAppRouterComponent, data: { externalRoutePath: 'talentacquisition/tacqprojectsearch'} }
+            { path: 'tacq/ap/projsearch', component: KFExternalAppRouterComponent, data: { externalRoutePath: 'talentacquisition/tacqprojectsearch'} },
+            { path: 'orgp/pay/new', component: KFSandboxMainComponent },
+            { path: 'orgp/orgsetup/leaderboard', component: KFSandboxMainComponent },
+            { path: 'orgp/orgsurvey/surveyslist', component: KFSandboxMainComponent }
         ];
 
         routes.push.apply(routes, this.kfRoutesService.getRoutes());
@@ -112,6 +116,6 @@ export class KFAppComponent implements OnInit {
     onLogout(event) {
         console.log('In onLogout event handler in App Component');
         this.authService.removeSessionInfo();
-        this.router.navigate(['/login']);
+        this.router.navigate([ 'login' ]);
     }
 }

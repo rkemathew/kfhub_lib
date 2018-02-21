@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
+import { environment } from '../../../../environments/environment';
 
 const nonAppPages: Array<string> = [
     "/login"
@@ -11,5 +12,13 @@ export class KFUtilsService {
 
     isAppPages(): boolean {
         return nonAppPages.indexOf(this.location.path()) === -1;
+    }
+
+    getUrlPrefixedPath(path: string): string {
+        let appUrlPrefix: string = environment().appUrlPrefix;
+        if (appUrlPrefix.startsWith('/')) {
+            appUrlPrefix = appUrlPrefix.slice(1);
+        }
+        return appUrlPrefix + '/' + path;
     }
 }

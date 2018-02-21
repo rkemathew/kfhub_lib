@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { KFAuthService } from '../../services/kf.auth.service';
 
-const EXTERNAL_APP_BASE_PATH = 'http://localhost:3000/successprofile.html#/sessionhandoff?redirectTo=';
+const EXTERNAL_APP_REDIRECT_BASE_PATH = '/successprofile.html#/sessionhandoff?redirectTo=';
 
 @Component({
     selector: 'kf-external-app-router',
@@ -16,11 +16,14 @@ export class KFExternalAppRouterComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        console.log('this.activatedRoute.routeConfig.redirectTo', this.activatedRoute.routeConfig.data);
-        const externalRoutePath = this.activatedRoute.routeConfig.data && this.activatedRoute.routeConfig.data.externalRoutePath ?
+        const externalRoutePath = (this.activatedRoute.routeConfig.data && this.activatedRoute.routeConfig.data.externalRoutePath) ?
             this.activatedRoute.routeConfig.data.externalRoutePath : '';
 
         this.authService.transferSessionInfoToLocalStorage();
-        window.location.href = EXTERNAL_APP_BASE_PATH + externalRoutePath;
+        window.location.href = this.getExternalAppRedirectPath(externalRoutePath);
+    }
+
+    getExternalAppRedirectPath(externalRoutePath: string): string {
+        return window.location.origin + EXTERNAL_APP_REDIRECT_BASE_PATH + externalRoutePath;
     }
 }

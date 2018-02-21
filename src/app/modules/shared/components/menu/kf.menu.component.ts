@@ -41,11 +41,18 @@ export class KFMenuComponent implements OnInit {
         const pos = locationPath.indexOf('/');
         const firstLevelRoutePath = locationPath.slice(0, pos);
 
+        console.log('kf.menu.component / findActiveMenuItem(), locationPath', locationPath);
+        console.log('kf.menu.component / findActiveMenuItem(), pos', pos);
+        console.log('kf.menu.component / findActiveMenuItem(), firstLevelRoutePath', firstLevelRoutePath);
+
         const index = this.menuItems.findIndex((menuItem: KFMenuItem) => {
             const miPos = menuItem.route.indexOf('/');
             const miFirstLevelRoutePath = menuItem.route.slice(0, miPos);
             return  miFirstLevelRoutePath === firstLevelRoutePath;
         });
+
+        console.log('kf.menu.component / findActiveMenuItem(), index', index);
+        console.log('kf.menu.component / findActiveMenuItem(), this.menuItems', this.menuItems);
 
         return (this.menuItems && this.menuItems[index]) ? this.menuItems[index]: null;
     }
@@ -54,6 +61,11 @@ export class KFMenuComponent implements OnInit {
         const locationPath = this.location.path().slice(1);
         const pos = this.getPosition(locationPath, '/', 2);
         const secondLevelRoutePath = locationPath.slice(0, pos);
+
+        console.log('kf.menu.component / findActiveSubMenuItem(), locationPath', locationPath);
+        console.log('kf.menu.component / findActiveSubMenuItem(), pos', pos);
+        console.log('kf.menu.component / findActiveSubMenuItem(), secondLevelRoutePath', secondLevelRoutePath);
+        console.log('kf.menu.component / findActiveSubMenuItem(), activeMenuItem', this.activeMenuItem);
 
         let index = 0;
         if (this.activeMenuItem && this.activeMenuItem.subMenuItems) {
