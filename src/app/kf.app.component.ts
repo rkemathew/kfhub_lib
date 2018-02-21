@@ -5,13 +5,14 @@ import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 
 import { KFMenuItem } from './modules/shared/models/kf.menu-item.model';
 import { KFAuthService } from './modules/shared/services/kf.auth.service';
+import { KFAuthGuardService as AuthGuard } from './modules/shared/services/kf.auth-guard.service';
 import { KFUtilsService } from './modules/shared/services/kf.utils.service';
 import { KFRoutesService } from './modules/shared/services/kf.routes.service';
 import { KFSandboxMainComponent } from './modules/sanboxes/main/kf.sandbox-main.component';
 import { KFExternalAppRouterComponent } from './modules/shared/components/external-router/kf.external-app-router.component';
 
 const INITIAL_ROUTE_PATH: string = 'tarc/jd/search';
-const DEFAULT_ROUTE_PATH: string = 'login';
+const DEFAULT_ROUTE_PATH: string = 'redirect';
 
 @Component({
     selector: 'kf-root',
@@ -74,7 +75,7 @@ export class KFAppComponent implements OnInit {
 
     getRoutes(): Route[] {
         let routes: Route[] = [];
-        routes.push(this.getInitialRoute());
+//        routes.push(this.getInitialRoute());
         this.getKFRoutes().forEach((route: Route) => routes.push(route));
         routes.push(this.getDefaultRoute());
         return routes;
@@ -90,12 +91,12 @@ export class KFAppComponent implements OnInit {
 
     getKFRoutes(): Route[] {
         let routes: Route[] = [
-            { path: 'tarc/sp/search', component: KFSandboxMainComponent },
-            { path: 'tarc/jd/search', component: KFSandboxMainComponent },
-            { path: 'tacq/ap/projsearch', component: KFExternalAppRouterComponent, data: { externalRoutePath: 'talentacquisition/tacqprojectsearch'} },
-            { path: 'orgp/pay/new', component: KFSandboxMainComponent },
-            { path: 'orgp/orgsetup/leaderboard', component: KFSandboxMainComponent },
-            { path: 'orgp/orgsurvey/surveyslist', component: KFSandboxMainComponent }
+            { path: 'tarc/sp/search', component: KFSandboxMainComponent, canActivate: [AuthGuard] },
+            { path: 'tarc/jd/search', component: KFSandboxMainComponent, canActivate: [AuthGuard] },
+            { path: 'tacq/ap/projsearch', component: KFExternalAppRouterComponent, data: { externalRoutePath: 'talentacquisition/tacqprojectsearch'}, canActivate: [AuthGuard] },
+            { path: 'orgp/pay/new', component: KFSandboxMainComponent, canActivate: [AuthGuard] },
+            { path: 'orgp/orgsetup/leaderboard', component: KFSandboxMainComponent, canActivate: [AuthGuard] },
+            { path: 'orgp/orgsurvey/surveyslist', component: KFSandboxMainComponent, canActivate: [AuthGuard] }
         ];
 
         routes.push.apply(routes, this.kfRoutesService.getRoutes());

@@ -13,6 +13,7 @@ import { KFFooterComponent } from './components/footer/kf.footer.component';
 import { KFMenuComponent } from './components/menu/kf.menu.component';
 import { KFLoginComponent } from './components/auth/kf.login.component';
 import { KFExternalAppRouterComponent } from './components/external-router/kf.external-app-router.component';
+import { KFInternalAppRouterComponent } from './components/internal-router/kf.internal-app-router.component';
 
 import { KFAuthService } from './services/kf.auth.service';
 import { KFSharedConstantsService } from './services/kf.shared-constants.service';
@@ -35,18 +36,21 @@ import { KFRoutesService } from './services/kf.routes.service';
         KFFooterComponent,
         KFMenuComponent,
         KFLoginComponent,
-        KFExternalAppRouterComponent
+        KFExternalAppRouterComponent,
+        KFInternalAppRouterComponent
     ],
     exports: [
         KFHeaderComponent,
         KFFooterComponent,
         KFMenuComponent,
         KFLoginComponent,
-        KFExternalAppRouterComponent
+        KFExternalAppRouterComponent,
+        KFInternalAppRouterComponent
     ],
     entryComponents: [
         KFLoginComponent,
-        KFExternalAppRouterComponent
+        KFExternalAppRouterComponent,
+        KFInternalAppRouterComponent
     ],
     providers: [
         KFRoutesService,

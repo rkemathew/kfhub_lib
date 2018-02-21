@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { KFMenuItem } from '../../models/kf.menu-item.model';
 import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
 
+const REDIRECT_ROUTE_PREFIX: string = '?redirectPath=';
+
 @Component({
     selector: 'kf-menu',
     templateUrl: './kf.menu.component.html',
@@ -37,7 +39,13 @@ export class KFMenuComponent implements OnInit {
     }
 
     findActiveMenuItem(): KFMenuItem {
-        const locationPath = this.location.path().slice(1);
+        let locationPath = this.location.path().slice(1);
+        console.log('kf.menu.component / findActiveMenuItem(), locationPath (before)', locationPath);
+
+        if (locationPath.startsWith(REDIRECT_ROUTE_PREFIX)) {
+            locationPath = locationPath.slice(REDIRECT_ROUTE_PREFIX.length);
+        }
+
         const pos = locationPath.indexOf('/');
         const firstLevelRoutePath = locationPath.slice(0, pos);
 
@@ -58,7 +66,11 @@ export class KFMenuComponent implements OnInit {
     }
 
     findActiveSubMenuItem(): KFMenuItem {
-        const locationPath = this.location.path().slice(1);
+        let locationPath = this.location.path().slice(1);
+        if (locationPath.startsWith(REDIRECT_ROUTE_PREFIX)) {
+            locationPath = locationPath.slice(REDIRECT_ROUTE_PREFIX.length);
+        }
+
         const pos = this.getPosition(locationPath, '/', 2);
         const secondLevelRoutePath = locationPath.slice(0, pos);
 
